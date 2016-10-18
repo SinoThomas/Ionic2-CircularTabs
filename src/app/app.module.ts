@@ -3,6 +3,7 @@ import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { CircularTabs } from '../components/circular-tabs/circular-tabs';
+import { DummyTabs } from '../providers/dummy-tabs';
 
 import { LandingPage } from '../pages/landing-page/landing-page';
 import { TabsBottom } from '../pages/tabs-bottom/tabs-bottom';
@@ -33,8 +34,9 @@ import { Settings } from '../pages/settings/settings';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    LandingPage, TabsBottom, TabsBottom2, TabsRight, TabsRight2
+    LandingPage, TabsBottom, TabsBottom2, TabsRight, TabsRight2,
+    Home, Calendar, Camera, Cloud, Compas, Contact, Folder, Images, Map, Settings
   ],
-  providers: []
+  providers: [DummyTabs]
 })
 export class AppModule { }

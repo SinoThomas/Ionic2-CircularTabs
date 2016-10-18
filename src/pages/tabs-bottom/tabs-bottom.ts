@@ -1,22 +1,55 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { NavController, Tabs } from 'ionic-angular';
 
-/*
-  Generated class for the TabsBottom page.
+import { DummyTabs } from '../../providers/dummy-tabs';
+import { Settings } from '../settings/settings';
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
+import { CircularTabs } from '../../components/circular-tabs/circular-tabs';
+
 @Component({
   selector: 'page-tabs-bottom',
   templateUrl: 'tabs-bottom.html'
 })
 export class TabsBottom {
 
-  constructor(public navCtrl: NavController) {}
+  @ViewChild('myCircularTabs') circularTabs: CircularTabs;
 
-  ionViewDidLoad() {
-    console.log('Hello TabsBottom Page');
+  ionTabs: any = [];
+  pages: any = [];
+  menuSettings: any;
+
+  constructor(public navCtrl: NavController, public DummyTabs: DummyTabs) {
+    console.log('constructor !');
+
+    // Menu Settings
+    this.menuSettings = {
+      totalAngle: 200,
+      gapAngle: 2,
+      startAngle: -1,
+      closeOnTabSelect: false,
+      isNavOpened: true,
+      closedBtnText: "Menu",
+      openedBtnText: "Close"
+    };
+
+    // add 4 tabs
+    for (var i = 0; i < 4; i++) {
+      this.addTab(i);
+    }
+
+
   }
+
+  ionViewDidEnter() {
+    console.log('ionViewDidEnter !');
+    this.circularTabs.openNav();
+
+  }
+
+  addTab(index: number) {
+    this.ionTabs.push(this.DummyTabs.getTab(index, true, true, true))
+  }
+
+
 
 }

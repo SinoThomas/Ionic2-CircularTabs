@@ -11,5 +11,16 @@
 
 
 <ion-content padding>
+	<ion-tabs #myTabs color="primary">
+		<ion-tab *ngFor="let ionTab of ionTabs" [root]="ionTab.root" tabTitle="{{ionTab.title}}" tabIcon="{{ionTab.iconName}}" tabBadge="{{ionTab.badge}}"
+			tabBadgeStyle="{{ionTab.badgeStyle}}">
+		</ion-tab>
+	</ion-tabs>
+
+	<circular-tabs #myCircularTabs [tabRef]="myTabs" [totalAngle]="menuSettings.totalAngle" [gapAngle]="menuSettings.gapAngle"
+		[startAngle]="menuSettings.startAngle" [closeOnTabSelect]="menuSettings.closeOnTabSelect" [closedBtnText]="menuSettings.closedBtnText"
+		[openedBtnText]="menuSettings.openedBtnText">
+	</circular-tabs>
+
 
 </ion-content>
