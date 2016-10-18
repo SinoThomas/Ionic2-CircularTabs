@@ -1,0 +1,126 @@
+circular-tabs {
+  position: fixed;
+  display: block;
+  bottom: 0%;
+  left: 50%;
+  margin-left: -50px;
+  height: 100px;
+  width: 100px;
+  z-index: 100;
+  border-radius: 50%;
+  .menu {
+    height: 15em;
+    font-family: 'Lato', Arial, sans-serif;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    .cn-button {
+      padding-top: 0;    position: absolute;
+      height: 100%;
+      width: 100%;
+      z-index: 101;
+      border: none;
+      border-radius: 50%;
+      background: color($colors,primary);
+      color: #fff;
+      text-align: center;
+      font-weight: 700;
+      font-size: 1.5em;
+      text-transform: uppercase;
+      cursor: pointer;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+
+    .cn-wrapper {
+      width: 400%;
+      height: 400%;
+      top: -150%;
+      left: -150%;
+      border-radius: 50%;
+      background: transparent;
+      opacity: 0;
+      position: absolute;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    /*cover to prevent extra space of anchors from being clickable*/
+    .cn-wrapper:after {
+      content: ".";
+      display: block;
+      font-size: 2em;
+      width: 6.2em;
+      height: 6.2em;
+      position: absolute;
+      left: 50%;
+      margin-left: -3.1em;
+      top: 50%;
+      margin-top: -3.1em;
+      border-radius: 50%;
+      z-index: 10;
+      color: transparent;
+    }
+
+    .cn-wrapper li {
+      position: absolute;
+      width: 50%;
+      height: 50%;
+      left: 0%;
+      top: 0%;
+      overflow: hidden;
+      font-size: 1.5em;
+      -webkit-transform-origin: 100% 100%;
+      -moz-transform-origin: 100% 100%;
+      transform-origin: 100% 100%;
+      pointer-events: none;
+
+      a {
+        position: absolute;
+        top: 25%;
+        left: 25%;
+        display: block;
+        width: 150%;
+        height: 150%;
+        border-radius: 50%;
+        background: -webkit-radial-gradient(transparent 35%, #f8f8f8 35%);
+        background: -moz-radial-gradient(transparent 35%, #f8f8f8 35%);
+        background: radial-gradient(transparent 35%, #f8f8f8 35%);
+        color: rgb(140, 140, 140);
+        text-align: center;
+        text-decoration: none;
+        font-size: 1.2em;
+        line-height: 2;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        pointer-events: auto;
+        span {
+          position: relative;
+          top: 10px;
+          display: block;
+          font-size: 0.5em;
+          font-weight: 700;
+        }
+
+        .selected {
+          font-size: 0.6em;
+          color: white;
+        }
+
+        ion-icon {
+          font-size: 1em;
+          }
+
+        ion-icon.selected {
+          font-size: 1.2em;
+          margin-top: -7px;
+          }
+        ion-badge {
+          display: block;
+          width: 100%;
+          position: absolute;
+          bottom: 70%;
+          }
+      }
+    }
+  }
+}
