@@ -1,14 +1,21 @@
 import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { Page1 } from '../pages/page1/page1';
-import { Page2 } from '../pages/page2/page2';
+
+import { LandingPage } from '../pages/landing-page/landing-page';
+import { TabsBottom } from '../pages/tabs-bottom/tabs-bottom';
+import { TabsBottom2 } from '../pages/tabs-bottom2/tabs-bottom2';
+import { TabsRight } from '../pages/tabs-right/tabs-right';
+import { TabsRight2 } from '../pages/tabs-right2/tabs-right2';
 
 @NgModule({
   declarations: [
     MyApp,
-    Page1,
-    Page2
+    LandingPage,
+    TabsBottom,
+    TabsBottom2,
+    TabsRight,
+    TabsRight2
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -16,8 +23,11 @@ import { Page2 } from '../pages/page2/page2';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    Page1,
-    Page2
+    LandingPage,
+    TabsBottom,
+    TabsBottom2,
+    TabsRight,
+    TabsRight2
   ],
   providers: []
 })
