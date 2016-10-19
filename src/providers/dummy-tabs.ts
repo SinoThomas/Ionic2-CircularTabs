@@ -13,40 +13,69 @@ import { Map } from '../pages/map/map';
 import { Settings } from '../pages/settings/settings';
 
 /*
-  Provider to return DummyTabs
+  Provider to return DummyTabs data
 */
 @Injectable()
 export class DummyTabs {
 
-  tabs = [
-    { root: Home, title: "Home", iconName: "home" },
-    { root: Calendar, title: "Calendar", iconName: "calendar" },
-    { root: Camera, title: "Camera", iconName: "camera" },
-    { root: Cloud, title: "Cloud", iconName: "cloud" },
-    { root: Compas, title: "Compas", iconName: "compas" },
-    { root: Contact, title: "Contact", iconName: "contact" },
-    { root: Folder, title: "Folder", iconName: "folder" },
-    { root: Images, title: "Images", iconName: "images" },
-    { root: Map, title: "Map", iconName: "map" },
-    { root: Settings, title: "Settings", iconName: "settings" }]
-  ;
-
-  badgeStyles = ["primary", "secondary", "danger", "light", "dark",];
+  tabs: any;
+  badgeStyles: any;
 
   constructor() {
+    this.tabs = [
+      { root: Home, title: "Home", iconName: "home" },
+      { root: Calendar, title: "Calendar", iconName: "calendar" },
+      { root: Camera, title: "Camera", iconName: "camera" },
+      { root: Cloud, title: "Cloud", iconName: "cloud" },
+      { root: Contact, title: "Contact", iconName: "contact" },
+      { root: Folder, title: "Folder", iconName: "folder" },
+      { root: Images, title: "Images", iconName: "images" },
+      { root: Map, title: "Map", iconName: "map" },
+      { root: Settings, title: "Settings", iconName: "settings" }]
+      ;
+
+    this.badgeStyles = ["primary", "secondary", "danger", "light", "dark"];
+
+    //set badge and badgeStyle
+    this.tabs.forEach(element => {
+      element.badge = Math.round((Math.random() * 100));
+      element.badgeStyle = this.badgeStyles[Math.round(Math.random() * this.badgeStyles.length)].toString();
+    });
+
   }
 
   getTab(tabIndex: number, hasTitle: boolean, hasIcon: boolean, hasBadge: boolean) {
-    let tab: any = this.tabs[tabIndex % this.tabs.length];
+    let tab = Object.create(this.tabs[tabIndex % this.tabs.length]);
 
-    hasTitle ? true : delete tab.title;
-    hasIcon ? true : delete tab.iconName;
-
-    if (hasBadge) {
-      tab.badge = Math.round((Math.random() * 100)).toString();
-      tab.badgeStyle = this.badgeStyles[Math.round(Math.random() * this.badgeStyles.length)];
+    if (!hasTitle) {
+      tab.title = '';
     }
+
+    if (!hasIcon) {
+      tab.iconName = '';
+    }
+
+    if (!hasBadge) {
+      tab.badge = '';
+      tab.badgeStyle = '';
+    }
+
     return tab;
+  }
+
+  getTitle(tabIndex: number) {
+    return this.tabs[tabIndex % this.tabs.length].title;
+  }
+
+  getIconName(tabIndex: number) {
+    return this.tabs[tabIndex % this.tabs.length].iconName;
+  }
+
+  getBadge(tabIndex: number) {
+    return this.tabs[tabIndex % this.tabs.length].badge;
+  }
+  getBadgeStyle(tabIndex: number) {
+    return this.tabs[tabIndex % this.tabs.length].badgeStyle;
   }
 
 
