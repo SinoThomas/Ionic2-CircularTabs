@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform, LoadingController } from 'ionic-angular';
 import { StatusBar } from 'ionic-native';
 
 import { LandingPage } from '../pages/landing-page/landing-page';
@@ -20,7 +20,7 @@ export class MyApp {
 
   pages: Array<{ title: string, component: any }>;
 
-  constructor(public platform: Platform) {
+  constructor(public platform: Platform, public loadingCtrl: LoadingController) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -42,7 +42,14 @@ export class MyApp {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    let loading = this.loadingCtrl.create({
+      content: 'Loading ...'
+    });
+    loading.present();
+
+    this.nav.setRoot(page.component).then(() => {
+      loading.dismiss();
+    });
   }
 
   openRootPage() {
