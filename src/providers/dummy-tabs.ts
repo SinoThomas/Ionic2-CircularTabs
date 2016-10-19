@@ -38,7 +38,7 @@ export class DummyTabs {
     //set badge and badgeStyle
     this.tabs.forEach(element => {
       element.badge = Math.round((Math.random() * 100));
-      element.badgeStyle = this.badgeStyles[Math.round(Math.random() * this.badgeStyles.length)].toString();
+      element.badgeStyle = this.badgeStyles[Math.round(Math.random() * this.badgeStyles.length)];
     });
 
   }
