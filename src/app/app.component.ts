@@ -5,8 +5,6 @@ import { StatusBar } from 'ionic-native';
 import { LandingPage } from '../pages/landing-page/landing-page';
 import { TabsBottom } from '../pages/tabs-bottom/tabs-bottom';
 import { TabsBottom2 } from '../pages/tabs-bottom2/tabs-bottom2';
-import { TabsRight } from '../pages/tabs-right/tabs-right';
-import { TabsRight2 } from '../pages/tabs-right2/tabs-right2';
 
 
 @Component({
@@ -17,6 +15,9 @@ export class MyApp {
 
   rootPage: any = LandingPage;
 
+  //Delete after//
+  // rootPage: any = TabsBottom;
+
   pages: Array<{title: string, component: any}>;
 
   constructor(public platform: Platform) {
@@ -25,9 +26,7 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Tabs Bottom', component: TabsBottom },
-      { title: 'Tabs Bottom Type 2', component: TabsBottom2 },
-      { title: 'Tabs Right', component: TabsRight },
-      { title: 'Tabs Right Type 2', component: TabsRight2 }
+      { title: 'Tabs Bottom Type 2', component: TabsBottom2 }
     ];
 
   }
