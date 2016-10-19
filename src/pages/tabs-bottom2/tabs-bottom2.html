@@ -12,4 +12,76 @@
 
 <ion-content padding>
 
+	<ion-tabs #myTabs color="primary">
+		<ion-tab *ngFor="let ionTab of ionTabs" [root]="ionTab.root" tabTitle="{{ionTab.title}}" tabIcon="{{ionTab.iconName}}" tabBadge="{{ionTab.badge}}"
+			tabBadgeStyle="{{ionTab.badgeStyle}}">
+		</ion-tab>
+	</ion-tabs>
+
+	<circular-tabs #myCircularTabs [tabRef]="myTabs" [totalAngle]="tabSettings.totalAngle" [gapAngle]="tabSettings.gapAngle"
+		[startAngle]="tabSettings.startAngle" [closeOnTabSelection]="tabSettings.closeOnTabSelect" [closeOnBlur]="tabSettings.closeOnBlur"
+		[closedBtnIconName]="tabSettings.closedBtnIconName" [openedBtnIconName]="tabSettings.openedBtnIconName">
+	</circular-tabs>
+
+	<ion-list [style.marginTop.px]="120">
+
+		<ion-grid>
+			<ion-row>
+				<ion-col width-50>
+					<ion-item>
+						<ion-label>Title</ion-label>
+						<ion-toggle [(ngModel)]="hasTitle" (ionChange)="resetTitle()"></ion-toggle>
+					</ion-item>
+				</ion-col>
+				<ion-col width-50>
+					<ion-item>
+						<ion-label>Icon</ion-label>
+						<ion-toggle [(ngModel)]="hasIcon" (ionChange)="resetIcon()"></ion-toggle>
+					</ion-item>
+				</ion-col>
+			</ion-row>
+			<ion-row>
+				<ion-col width-50>
+					<ion-item>
+						<ion-label>Badge</ion-label>
+						<ion-toggle [(ngModel)]="hasBadge" (ionChange)="resetBadge()"></ion-toggle>
+					</ion-item>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+
+		<ion-list-header>
+			Total Angle
+		</ion-list-header>
+		<ion-item>
+			<ion-badge item-left>{{tabSettings.totalAngle}}</ion-badge>
+			<ion-range min="0" max="180" [(ngModel)]="tabSettings.totalAngle" color="primary">
+				<ion-label range-left>0</ion-label>
+				<ion-label range-right>180</ion-label>
+			</ion-range>
+		</ion-item>
+
+		<ion-list-header>
+			Gap Angle
+		</ion-list-header>
+		<ion-item>
+			<ion-badge item-left color="secondary">{{tabSettings.gapAngle}}</ion-badge>
+			<ion-range min="0" max="{{tabSettings.totalAngle/numOfTabs}}" [(ngModel)]="tabSettings.gapAngle" color="secondary">
+				<ion-label range-left>0</ion-label>
+				<ion-label range-right>{{tabSettings.totalAngle/numOfTabs}}</ion-label>
+			</ion-range>
+		</ion-item>
+
+		<ion-list-header>
+			Start Angle
+		</ion-list-header>
+		<ion-item>
+			<ion-badge item-left color="dark">{{tabSettings.startAngle}}</ion-badge>
+			<ion-range min="-1" max="360" [(ngModel)]="tabSettings.startAngle" color="dark">
+				<ion-label range-left>-1</ion-label>
+				<ion-label range-right>360</ion-label>
+			</ion-range>
+		</ion-item>
+	</ion-list>
+
 </ion-content>

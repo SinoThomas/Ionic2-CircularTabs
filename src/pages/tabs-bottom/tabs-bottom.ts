@@ -2,7 +2,6 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController, Tabs } from 'ionic-angular';
 
 import { DummyTabs } from '../../providers/dummy-tabs';
-import { Settings } from '../settings/settings';
 
 import { CircularTabs } from '../../components/circular-tabs/circular-tabs';
 
@@ -12,44 +11,79 @@ import { CircularTabs } from '../../components/circular-tabs/circular-tabs';
 })
 export class TabsBottom {
 
+  @ViewChild('myTabs') myTabs: Tabs;
   @ViewChild('myCircularTabs') circularTabs: CircularTabs;
 
   ionTabs: any = [];
   pages: any = [];
-  menuSettings: any;
+  tabSettings: any;
 
-  constructor(public navCtrl: NavController, public DummyTabs: DummyTabs) {
-    console.log('constructor !');
+  numOfTabs: number;
+  hasTitle: boolean;
+  hasIcon: boolean;
+  hasBadge: boolean;
+
+  constructor(public navCtrl: NavController, public dummyTabs: DummyTabs) {
 
     // Menu Settings
-    this.menuSettings = {
+    this.tabSettings = {
       totalAngle: 200,
       gapAngle: 2,
       startAngle: -1,
       closeOnTabSelect: false,
+      closeOnBlur: true,
       isNavOpened: true,
       closedBtnText: "Menu",
       openedBtnText: "Close"
     };
 
-    // add 4 tabs
-    for (var i = 0; i < 4; i++) {
-      this.addTab(i);
-    }
-
+    // add tabs
+    this.numOfTabs = 7;
+    this.hasTitle = true;
+    this.hasIcon = true;
+    this.hasBadge = true;
+    this.addTabs();
 
   }
 
   ionViewDidEnter() {
-    console.log('ionViewDidEnter !');
     this.circularTabs.openNav();
-
   }
 
-  addTab(index: number) {
-    this.ionTabs.push(this.DummyTabs.getTab(index, true, true, true))
+  addTabs() {
+    for (var i = 0; i < this.numOfTabs; i++) {
+      this.ionTabs.push(this.dummyTabs.getTab(i, this.hasTitle, this.hasIcon, this.hasBadge));
+    }
   }
 
-
+  resetTitle() {
+    for (var i = 0; i < this.numOfTabs; i++) {
+      if (this.hasTitle) {
+        this.ionTabs[i].title = this.dummyTabs.getTitle(i);
+      } else {
+        this.ionTabs[i].title = '';
+      }
+    }
+  }
+  resetIcon() {
+    for (var i = 0; i < this.numOfTabs; i++) {
+      if (this.hasIcon) {
+        this.ionTabs[i].iconName = this.dummyTabs.getIconName(i);
+      } else {
+        this.ionTabs[i].iconName = '';
+      }
+    }
+  }
+  resetBadge() {
+    for (var i = 0; i < this.numOfTabs; i++) {
+      if (this.hasBadge) {
+        this.ionTabs[i].badge = this.dummyTabs.getBadge(i);
+        this.ionTabs[i].badgeStyle = this.dummyTabs.getBadgeStyle(i);
+      } else {
+        this.ionTabs[i].badge = '';
+        this.ionTabs[i].badgeStyle = '';
+      }
+    }
+  }
 
 }
