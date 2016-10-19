@@ -1,8 +1,9 @@
 <div class="menu">
 
-	<button #menuButton class="cn-button" (click)="toggleNav()">
-    {{isNavOpened ? openedBtnText : closedBtnText}}
-    </button>
+	<button #menuButton  class="cn-button" (click)="toggleNav()">
+    <span *ngIf="openedBtnText!=''">{{isNavOpened ? openedBtnText : closedBtnText}}</span>
+    <ion-icon *ngIf="openedBtnIconName!=''" [name]="isNavOpened ? openedBtnIconName : closedBtnIconName" ></ion-icon>
+  </button>
 
 	<div class="cn-wrapper" [@menu]="isNavOpened?'open':'close'" (blur)="toggleNav()">
 		<ul #list>
@@ -10,7 +11,7 @@
 				<a href="#" [class.selected]="tab.isSelected">
 					<span *ngIf="tab.tabTitle" [class.selected]="tab.isSelected">
             {{tab.tabTitle}}
-            </span>
+          </span>
 					<ion-icon *ngIf="tab.tabIcon" [class.selected]="tab.isSelected" [isActive]="tab.isSelected" [name]="tab.tabIcon"></ion-icon>
 					<ion-badge *ngIf="tab.tabBadge " [color]="tab.tabBadgeStyle ">{{tab.tabBadge}}</ion-badge>
 				</a>

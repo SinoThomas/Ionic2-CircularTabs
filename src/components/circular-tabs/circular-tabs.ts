@@ -32,9 +32,12 @@ export class CircularTabs implements OnChanges, AfterViewInit {
   @Input() totalAngle: number = 180;
   @Input() gapAngle: number = 2;
   @Input() startAngle: number = -1;
-  @Input() closeOnTabSelect: boolean = true;
-  @Input() closedBtnText: string = "Menu";
-  @Input() openedBtnText: string = "Close";
+  @Input() closeOnTabSelection: boolean = true;
+  @Input() closeOnBlur: boolean = true;
+  @Input() closedBtnText: string = "";
+  @Input() openedBtnText: string = "";
+  @Input() closedBtnIconName: string = "";
+  @Input() openedBtnIconName: string = "";
 
   isNavOpened: boolean = false;
   positionXLock: boolean = false;
@@ -90,7 +93,7 @@ export class CircularTabs implements OnChanges, AfterViewInit {
   selectTab(tabIndex) {
     this.tabRef.selectedIndex = tabIndex;
     this.changeTab();
-    if (this.closeOnTabSelect) {
+    if (this.closeOnTabSelection) {
       this.toggleNav();
     }
   }
@@ -138,14 +141,15 @@ export class CircularTabs implements OnChanges, AfterViewInit {
   }
 
   onClick(event) {
-    console.log('clicked outside');
+    if (this.closeOnBlur) {
+      // check if clicked outside this element
+      if (!this.elemRef.nativeElement.contains(event.target)) {
+        this.closeNav();
+        // console.log(this.elemRef.nativeElement);
 
-    // check if clicked outside this element
-    if (!this.elemRef.nativeElement.contains(event.target)) {
-      this.closeNav();
-      console.log('clicked outside closing Nav...');
+        console.log('clicked outside closing Nav...');
+      }
     }
-
   }
 
 }
