@@ -5,22 +5,27 @@ This is demo of Circular Tabs Ionic 2 Plugin.
 
 ##Getting Started
 
-*Clone this repository.
-*Run npm install from the project root.
-*Install the ionic CLI (npm install -g ionic)
-*Run ionic serve in a terminal from the project root.
-*Profit
+* Clone this repository.
+* Run npm install from the project root.
+* Install the ionic CLI (npm install -g ionic)
+* Run ionic serve in a terminal from the project root.
 
 **Note:** Is your build slow? Update npm to 3.x: npm install -g npm.
 
+##Using Plugin in other projects
+
+* Copy & paste CircularTabs component in <a href='/src/components/'>components folder</a>.
+* Import it app.module.ts and tabs component.
+* Place circular-tabs tag below ion-tabs.<a href='/src/pages/landing-page/landing-page.html'>Sample</a>
+* Give reference to ion-tabs and add other properties. 
 
 ##Ionic Info
 
-*Cordova CLI: 6.3.1
-*Gulp version: CLI version 3.9.1
-*Ionic CLI Version: 2.1.1
-*Ionic App Lib Version: 2.1.1
-*Node Version: v4.6.0
+* Cordova CLI: 6.3.1
+* Gulp version: CLI version 3.9.1
+* Ionic CLI Version: 2.1.1
+* Ionic App Lib Version: 2.1.1
+* Node Version: v4.6.0
 
 
 ##Preview
