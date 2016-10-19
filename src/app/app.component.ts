@@ -45,4 +45,8 @@ export class MyApp {
     this.nav.setRoot(page.component);
   }
 
+  openRootPage() {
+    this.nav.goToRoot({});
+  }
+
 }
