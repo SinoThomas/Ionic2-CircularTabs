@@ -32,7 +32,6 @@ export class TabsBottom2 {
       startAngle: -1,
       closeOnTabSelect: false,
       closeOnBlur: false,
-      isNavOpened: true,
       closedBtnIconName: "arrow-up",
       openedBtnIconName: "close"
     };

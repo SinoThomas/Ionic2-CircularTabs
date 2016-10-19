@@ -30,6 +30,9 @@ circular-tabs {
       cursor: pointer;
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
+      ion-icon{
+        font-size: 2em;
+      }
     }
 
     .cn-wrapper {

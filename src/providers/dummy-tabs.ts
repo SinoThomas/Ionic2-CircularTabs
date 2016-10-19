@@ -5,7 +5,6 @@ import { Home } from '../pages/home/home';
 import { Calendar } from '../pages/calendar/calendar';
 import { Camera } from '../pages/camera/camera';
 import { Cloud } from '../pages/cloud/cloud';
-import { Compas } from '../pages/compas/compas';
 import { Contact } from '../pages/contact/contact';
 import { Folder } from '../pages/folder/folder';
 import { Images } from '../pages/images/images';

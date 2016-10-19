@@ -1,6 +1,6 @@
 <ion-header>
 
-	<ion-navbar>
+	<ion-navbar color="primary">
 		<button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -12,5 +12,21 @@
 
 
 <ion-content padding>
+
+	<ion-tabs #myTabs color="primary">
+		<ion-tab [root]="homeCtrl" tabTitle="Home" tabIcon="home" tabBadge="1" tabBadgeStyle="primary"></ion-tab>
+		<ion-tab [root]="calendarCtrl" tabTitle="Calendar" tabIcon="calendar" tabBadge="2" tabBadgeStyle="secondary"></ion-tab>
+		<ion-tab [root]="cameraCtrl" tabTitle="Camera" tabIcon="camera" tabBadge="3" tabBadgeStyle="dark"></ion-tab>
+		<ion-tab [root]="cloudCtrl" tabTitle="Cloud" tabIcon="cloud" tabBadge="4" tabBadgeStyle="light"></ion-tab>
+		<ion-tab [root]="contactCtrl" tabTitle="Contact" tabIcon="contact" tabBadge="5" tabBadgeStyle="danger"></ion-tab>
+		<ion-tab [root]="folderCtrl" tabTitle="Folder" tabIcon="folder" tabBadge="6" tabBadgeStyle="primary"></ion-tab>
+		<ion-tab [root]="imagesCtrl" tabTitle="Images" tabIcon="images" tabBadge="7" tabBadgeStyle="secondary"></ion-tab>
+		<ion-tab [root]="mapCtrl" tabTitle="Map" tabIcon="map" tabBadge="8" tabBadgeStyle="dark"></ion-tab>
+		<ion-tab [root]="settingsCtrl" tabTitle="Settings" tabIcon="settings" tabBadge="9" tabBadgeStyle="light"></ion-tab>
+	</ion-tabs>
+
+	<circular-tabs [tabRef]=" myTabs" [totalAngle]="360" [gapAngle]="2" [startAngle]="-1" [closeOnTabSelection]="false" [closeOnBlur]="true"
+		[closedBtnIconName]="'apps'" [openedBtnIconName]="'close-circle'">
+	</circular-tabs>
 
 </ion-content>

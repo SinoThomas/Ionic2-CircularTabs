@@ -31,14 +31,13 @@ export class TabsBottom {
       gapAngle: 2,
       startAngle: -1,
       closeOnTabSelect: false,
-      closeOnBlur: true,
-      isNavOpened: true,
+      closeOnBlur: false,
       closedBtnText: "Menu",
       openedBtnText: "Close"
     };
 
     // add tabs
-    this.numOfTabs = 7;
+    this.numOfTabs = 6;
     this.hasTitle = true;
     this.hasIcon = true;
     this.hasBadge = true;

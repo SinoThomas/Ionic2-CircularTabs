@@ -18,7 +18,7 @@ export class MyApp {
   //Delete after//
   // rootPage: any = TabsBottom;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{ title: string, component: any }>;
 
   constructor(public platform: Platform) {
     this.initializeApp();

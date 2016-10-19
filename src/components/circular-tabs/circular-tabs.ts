@@ -45,13 +45,13 @@ export class CircularTabs implements OnChanges, AfterViewInit {
 
 
   constructor(public elemRef: ElementRef, public renderer: Renderer) {
-
   }
 
   ngOnChanges(changes: SimpleChanges) {
     // if (changes['positionLock'].currentValue != changes['positionLock'].previousValue) { }
     this.styleMenu();
 
+    this.logSettings();
   }
 
   ngAfterViewInit() {
@@ -150,6 +150,19 @@ export class CircularTabs implements OnChanges, AfterViewInit {
         console.log('clicked outside closing Nav...');
       }
     }
+  }
+
+  logSettings() {
+    console.log('CircularTab Settings:');
+    console.log('totalAngle: ' + this.totalAngle);
+    console.log('gapAngle: ' + this.gapAngle);
+    console.log('startAngle: ' + this.startAngle);
+    console.log('closeOnTabSelection: ' + this.closeOnTabSelection);
+    console.log('closeOnBlur: ' + this.closeOnBlur);
+    console.log('closedBtnText: ' + this.closedBtnText);
+    console.log('openedBtnText: ' + this.openedBtnText);
+    console.log('closedBtnIconName: ' + this.closedBtnIconName);
+    console.log('openedBtnIconName: ' + this.openedBtnIconName);
   }
 
 }
