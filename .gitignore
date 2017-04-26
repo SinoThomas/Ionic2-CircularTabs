@@ -32,3 +32,7 @@ $RECYCLE.BIN/
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
+
+resources/icon\.ico
+
+desktop\.ini
