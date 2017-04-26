@@ -3,7 +3,7 @@
 This is demo of Circular Tabs Ionic 2 Plugin.
 
 
-##Getting Started
+## Getting Started
 
 * Clone this repository.
 * Run npm install from the project root.
@@ -12,14 +12,14 @@ This is demo of Circular Tabs Ionic 2 Plugin.
 
 **Note:** Is your build slow? Update npm to 3.x: npm install -g npm.
 
-##Using Plugin in other projects
+## Using Plugin in other projects
 
 * Copy & paste CircularTabs component in <a href='/src/components/'>components folder</a>.
 * Import it app.module.ts and tabs component.
 * Place circular-tabs tag below ion-tabs.<a href='/src/pages/landing-page/landing-page.html'>Sample</a>
 * Give reference to ion-tabs and add other properties. 
 
-##Ionic Info
+## Ionic Info
 
 * Cordova CLI: 6.3.1
 * Gulp version: CLI version 3.9.1
@@ -28,7 +28,7 @@ This is demo of Circular Tabs Ionic 2 Plugin.
 * Node Version: v4.6.0
 
 
-##Preview
+## Preview
 
  <img src="resources/screenshots/landing-ios.PNG" width="100px" height="175px" alt="">
  <img src="resources/screenshots/landing-md.PNG" width="100px" height="175px" alt="">
@@ -38,6 +38,7 @@ This is demo of Circular Tabs Ionic 2 Plugin.
  <img src="resources/screenshots/tb2-ios.PNG" width="100px" height="175px" alt="">
  <img src="resources/screenshots/tb2-md.PNG" width="100px" height="175px" alt="">
  <img src="resources/screenshots/tb2-wp2.PNG" width="100px" height="175px" alt="">
+ 
  ![](resources/screenshots/gifs/landingPage.gif)
  ![](resources/screenshots/gifs/tabsBottom1Page.gif)
  ![](resources/screenshots/gifs/tabsBottom2Page.gif)
