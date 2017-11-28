@@ -1,6 +1,10 @@
-{
+ {
   "name": "Ionic2-CircularTabs",
   "app_id": "",
-  "v2": true,
-  "typescript": true
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+	}
 }
+
+

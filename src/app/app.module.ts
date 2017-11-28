@@ -1,5 +1,8 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule } from 'ionic-angular';
+import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 
 import { CircularTabs } from '../components/circular-tabs/circular-tabs';
@@ -26,6 +29,8 @@ import { Settings } from '../pages/settings/settings';
     Home, Calendar, Camera, Cloud, Contact, Folder, Images, Map, Settings
   ],
   imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -34,6 +39,9 @@ import { Settings } from '../pages/settings/settings';
     LandingPage, TabsBottom, TabsBottom2,
     Home, Calendar, Camera, Cloud, Contact, Folder, Images, Map, Settings
   ],
-  providers: [DummyTabs]
+  providers: [
+    DummyTabs,
+    StatusBar
+  ]
 })
 export class AppModule { }
